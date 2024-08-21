@@ -7,7 +7,8 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <p>
-      userinfo works!
+      userinfo works! <br>
+     <strong> Ashish We have made this work</strong>
     </p>
   `,
   styles: ``

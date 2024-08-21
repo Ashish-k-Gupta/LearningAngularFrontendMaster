@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
+import { UserinfoComponent } from './userinfo/userinfo.component';
+import { UserInfoComponent } from "../../../11-dependency-injection/src/app/user-info/user-info.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
+  imports: [UserinfoComponent, UserInfoComponent],
   template: `
     <section class="menu">🏠 Home</section>
     <section class="main">
       <h1>Metrics and Figures Dashboard</h1>
       <section class="content">
-        <article class="tile"></article>
+        <article class="tile"><app-userinfo/></article>
         <article class="tile">
           <img src="/assets/noun-pie-chart-6331100-C462DD.png" height="300" />
         </article>
