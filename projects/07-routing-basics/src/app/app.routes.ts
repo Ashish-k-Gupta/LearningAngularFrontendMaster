@@ -4,15 +4,13 @@ import { WelcomeComponent } from './welcome.component';
 
 export const routes: Routes = [
   {
-    // add a default path to greetings component
-    path: '', 
-    component: GreetingsComponent,
-
+      path: 'greeting',
+      component: GreetingsComponent
+ 
   },
-{
-  path: 'welcome',
-  component: WelcomeComponent
-}
 
+  {
+    path: 'welcome',
+    component: WelcomeComponent
+  }
 ];
-
