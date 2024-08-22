@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   standalone: true,
   template: `
     <section class="container">
-      <!-- This article element represents and entire listing -->
       @for (carEntry of carList; track carEntry) {
+      <!-- This article element represents and entire listing -->
       <article class="listing">
         <div class="image-parent">
           <img class="product-image" src="https://placehold.co/100x100" />
@@ -33,6 +33,8 @@ import { Component } from '@angular/core';
           </p>
         </section>
       </article>
+    }@empty {
+      <p>No Listing is available</p>
     }
     </section>
   `,
@@ -40,37 +42,37 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   carList = [
-    {
-      make: 'Foyoda',
-      model: 'Famery',
-      miles: 54354,
-      price: 1000,
-      year: 2022,
-      transmission: 'Automatic',
-    },
-    {
-      make: 'Ronda',
-      model: 'Disaccord',
-      miles: 100000,
-      price: 230,
-      year: 1991,
-      transmission: 'Automatic',
-    },
-    {
-      make: 'Specific Motors',
-      model: 'Spoke',
-      miles: 100000,
-      price: 230,
-      year: 1991,
-      transmission: 'Automatic',
-    },
-    {
-      make: 'Ford',
-      model: 'Pocus',
-      miles: 1,
-      price: 22330,
-      year: 2023,
-      transmission: 'Automatic',
-    },
+    // {
+    //   make: 'Foyoda',
+    //   model: 'Famery',
+    //   miles: 54354,
+    //   price: 1000,
+    //   year: 2022,
+    //   transmission: 'Automatic',
+    // },
+    // {
+    //   make: 'Ronda',
+    //   model: 'Disaccord',
+    //   miles: 100000,
+    //   price: 230,
+    //   year: 1991,
+    //   transmission: 'Automatic',
+    // },
+    // {
+    //   make: 'Specific Motors',
+    //   model: 'Spoke',
+    //   miles: 100000,
+    //   price: 230,
+    //   year: 1991,
+    //   transmission: 'Automatic',
+    // },
+    // {
+    //   make: 'Ford',
+    //   model: 'Pocus',
+    //   miles: 1,
+    //   price: 22330,
+    //   year: 2023,
+    //   transmission: 'Automatic',
+    // },
   ];
 }
