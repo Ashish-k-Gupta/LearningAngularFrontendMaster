@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component } from '@angular/core';
 import { Car } from './car';
 import { ListingComponent } from './listing/listing.component';
 
@@ -9,19 +9,16 @@ import { ListingComponent } from './listing/listing.component';
   template: `
     <h1>Saved Cars {{ savedCarList.length }}</h1>
     <section class="container">
-      @for(carInput of carList; track carInput){
-        <app-listing [car]="carInput"  (savedCars) = addToSavedCar($event)/>
-
+      @for(carEntry of carList; track carEntry){
+        <app-listing  [carInput] = "carEntry" (addSavedCarList)="pushCarToSaved($event)"/>
       }
-      <!-- This article element represents and entire listing -->
-      <!-- end car listing markup -->
     </section>
-
-    <article>
-      @for(savedCarEntry of savedCarList; track savedCarEntry){
-        <p>{{savedCarEntry.make}}-{{savedCarEntry.model}}</p>
-      }
-    </article>
+    <section>
+        @for(pushCarToSaved of savedCarList; track pushCarToSaved ){
+          <p>{{pushCarToSaved.make}} - {{pushCarToSaved.model}}</p>
+        }
+      </section>
+      
   `,
   styles: [],
 })
@@ -53,7 +50,7 @@ export class AppComponent {
       transmission: 'Automatic',
     },
     {
-      make: 'Fjord',
+      make: 'Ford',
       model: 'Pocus',
       miles: 1,
       price: 22330,
@@ -62,8 +59,8 @@ export class AppComponent {
     },
   ];
 
-  addToSavedCar(car: Car){
-    this.savedCarList.push(car)
+  pushCarToSaved(carInput: Car){
+    this.savedCarList.push(carInput)
   }
-  
+
 }

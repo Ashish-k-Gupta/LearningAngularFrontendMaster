@@ -6,46 +6,57 @@ import { Car } from '../car';
   selector: 'app-listing',
   standalone: true,
   imports: [CommonModule],
-  template: ` <!-- listing markup goes here -->
-  <article class="listing">
-        <div class="image-parent"> 
+  template: ` <!-- listing markup goes here --> 
+    <article class="listing">
+        <div class="image-parent">
           <img class="product-image" src="https://placehold.co/100x100" />
         </div>
         <section class="details">
           <p class="title"><!-- car make and model-->
-            {{car.make}} {{car.model}}
+            {{carInput.make}} {{carInput.model}}          
           </p>
           <hr />
           <p class="detail">
             <span>Year</span>
-            <span><!-- year --></span>
+            <span><!-- year -->
+              {{carInput.year}}
+            </span>
           </p>
           <div class="detail">
             <span>Transmission</span>
-            <span><!-- transmission --></span>
+            <span><!-- transmission -->
+              {{carInput.transmission}}
+            </span>
           </div>
           <p class="detail">
             <span>Mileage</span>
-            <span><!-- miles --></span>
+            <span><!-- miles -->
+              {{carInput.miles}}
+            </span>
           </p>
           <p class="detail">
             <span>Price</span>
-            <span><!-- price --></span>
+            <span><!-- price -->
+            {{carInput.price}}
+            </span>
           </p>
         </section>
       </article>
-      <button (click)= handleSaveEvent()>Save Car</button>
+      <button (click)=" handleCarSaved()">Save Car</button>
+
+      
   `,
   styles: ``,
 })
 export class ListingComponent {
   @Input({
-    required: true
-  }) car!: Car;
+    required : true
+  }) carInput!: Car
 
-  @Output() savedCars = new EventEmitter<Car>();
-  handleSaveEvent(){
-    this.savedCars.emit(this.car)
+  @Output() addSavedCarList = new EventEmitter<Car>();
+
+  handleCarSaved(){
+    this.addSavedCarList.emit(this.carInput)
   }
 
 }
